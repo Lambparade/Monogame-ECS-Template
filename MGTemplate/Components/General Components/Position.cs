@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace TestGL.Components
+namespace MGTemplate.Components
 {
     public class Position : Component
     {
@@ -12,9 +12,9 @@ namespace TestGL.Components
             set;
         }
 
-        public Position (Vector2 StartPosition)
+        public Position (float X,float Y)
         {
-            Location = new Vector2(StartPosition.X,StartPosition.Y);
+            Location = new Vector2(X,Y);
         }
     }
 }

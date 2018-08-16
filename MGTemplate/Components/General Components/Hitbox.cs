@@ -1,4 +1,4 @@
-namespace TestGL.Components
+namespace MGTemplate.Components
 {
     public class Hitbox : Component
     {

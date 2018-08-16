@@ -2,12 +2,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace MGTemplate
+namespace MGTemplate.Entities
 {
-    public class Component
+    public class Entity
     {
-        public Component ()
-        { 
+        public Entity()
+        {
 
         }
     }

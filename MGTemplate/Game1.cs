@@ -2,6 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using MGTemplate.Systems.Content_System;
+using MGTemplate.Systems.Render_System;
+using MGTemplate.Systems.Entity_System;
+
 namespace MGTemplate
 {
     public class Game1 : Game
@@ -18,8 +22,6 @@ namespace MGTemplate
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
@@ -27,7 +29,9 @@ namespace MGTemplate
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            ContentImages.Load(this);
+
+            LoadEntities.LoadPlayer();
         }
 
         protected override void Update(GameTime gameTime)
@@ -35,7 +39,7 @@ namespace MGTemplate
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            EntityUpdater.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -44,7 +48,7 @@ namespace MGTemplate
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            RenderSprites.Draw(spriteBatch);
 
             base.Draw(gameTime);
         }

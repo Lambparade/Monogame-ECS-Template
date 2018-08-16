@@ -1,6 +1,6 @@
-namespace TestGL.Components.General_Components.SubComponents
+namespace MGTemplate.Components.General_Components.SubComponents
 {
-    public class HitBoxSprite : HitBoxSprite
+    public class HitBoxSprite : Component
     {
         
     }

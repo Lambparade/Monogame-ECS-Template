@@ -1,9 +1,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using TestGL.Components.General_Components.SubComponents;
+using MGTemplate.Components.General_Components.SubComponents;
 
-namespace TestGL.Components
+namespace MGTemplate.Components
 {
     public class Sprite : Component
     {

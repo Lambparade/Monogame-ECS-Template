@@ -1,10 +1,11 @@
+using MGTemplate.Components.General_Components.SubComponents;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+
 using Microsoft.Xna.Framework.Input;
 
-using TestGL.Components.General_Components.SubComponents;
-
-namespace TestGL.Systems.Content_System
+namespace MGTemplate.Systems.Content_System
 {
     static public class ContentTexture
     {
@@ -24,11 +25,12 @@ namespace TestGL.Systems.Content_System
             set;
         }
 
-        public static void GenerateGameTextures()
+        public static void GenerateGameTextures ()
         {
-
-            RedBlock = new GameTexture(ContentImages.SpriteSheet,new Rectangle(32,0,32,32));
-
+            if (ContentImages.SpriteSheet != null)
+            {
+                RedBlock = new GameTexture (ContentImages.SpriteSheet, new Rectangle (32, 0, 32, 32));
+            }
         }
     }
 }
