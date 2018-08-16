@@ -33,7 +33,7 @@ namespace MGTemplate.Entities.General_Entities.Player_Entities
 
         public override void Update(GameTime gameTime)
         {
-
+            Draw();
         }
 
         public void Draw()
