@@ -1,0 +1,11 @@
+C:\Users\robinson\Documents\Monogame-ECS-Template\MGTemplate\bin\Debug\netcoreapp2.0\MGTemplate.deps.json
+C:\Users\robinson\Documents\Monogame-ECS-Template\MGTemplate\bin\Debug\netcoreapp2.0\MGTemplate.runtimeconfig.json
+C:\Users\robinson\Documents\Monogame-ECS-Template\MGTemplate\bin\Debug\netcoreapp2.0\MGTemplate.runtimeconfig.dev.json
+C:\Users\robinson\Documents\Monogame-ECS-Template\MGTemplate\bin\Debug\netcoreapp2.0\MGTemplate.dll
+C:\Users\robinson\Documents\Monogame-ECS-Template\MGTemplate\bin\Debug\netcoreapp2.0\MGTemplate.pdb
+C:\Users\robinson\Documents\Monogame-ECS-Template\MGTemplate\obj\Debug\netcoreapp2.0\MGTemplate.csprojAssemblyReference.cache
+C:\Users\robinson\Documents\Monogame-ECS-Template\MGTemplate\obj\Debug\netcoreapp2.0\MGTemplate.csproj.CoreCompileInputs.cache
+C:\Users\robinson\Documents\Monogame-ECS-Template\MGTemplate\obj\Debug\netcoreapp2.0\MGTemplate.AssemblyInfoInputs.cache
+C:\Users\robinson\Documents\Monogame-ECS-Template\MGTemplate\obj\Debug\netcoreapp2.0\MGTemplate.AssemblyInfo.cs
+C:\Users\robinson\Documents\Monogame-ECS-Template\MGTemplate\obj\Debug\netcoreapp2.0\MGTemplate.dll
+C:\Users\robinson\Documents\Monogame-ECS-Template\MGTemplate\obj\Debug\netcoreapp2.0\MGTemplate.pdb
