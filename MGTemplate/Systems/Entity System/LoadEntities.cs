@@ -5,6 +5,8 @@ using MGTemplate.Components;
 
 using MGTemplate.Systems.Content_System;
 
+using MGTemplate.Managers.Graphics_Managers;
+
 using MGTemplate.Entities;
 using MGTemplate.Entities.General_Entities;
 using MGTemplate.Entities.General_Entities.Player_Entities;
@@ -20,6 +22,8 @@ namespace MGTemplate.Systems.Entity_System
         public static void LoadPlayer()
         {
             Player Player1 = new Player(ContentTexture.RedBlock,new Position(10,10));
+
+            ActiveEntityDrawManager.AddToRenderQueue(Player1);
         }
     }
 }

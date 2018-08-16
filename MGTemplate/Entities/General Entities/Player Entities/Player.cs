@@ -18,27 +18,19 @@ namespace MGTemplate.Entities.General_Entities.Player_Entities
 {
     public class Player : ActiveEntity
     {
-        Sprite PlayerSprite;
-
-        Position PlayerPosition;
 
         public Player(GameTexture PlayerTexture, Position StartPlayerPosition)
         {
-            PlayerPosition = new Position(StartPlayerPosition.Location.X, StartPlayerPosition.Location.Y);
+            GamePosition = new Position(StartPlayerPosition.Location.X,StartPlayerPosition.Location.Y);
 
-            PlayerSprite = new Sprite(PlayerTexture, PlayerPosition, 1.0f);
+            Graphic = new Sprite(PlayerTexture, GamePosition, 1.0f);
 
             EntityUpdater.AddToEntityUpdater(this);
         }
 
         public override void Update(GameTime gameTime)
         {
-            Draw();
-        }
-
-        public void Draw()
-        {
-            RenderSprites.AddToLayer(RenderSprites.Layer1, PlayerSprite);
+            PlaceGraphic(1,5);
         }
     }
 }

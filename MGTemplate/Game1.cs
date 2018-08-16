@@ -6,6 +6,8 @@ using MGTemplate.Systems.Content_System;
 using MGTemplate.Systems.Render_System;
 using MGTemplate.Systems.Entity_System;
 
+using MGTemplate.Managers.Graphics_Managers;
+
 namespace MGTemplate
 {
     public class Game1 : Game
@@ -47,6 +49,8 @@ namespace MGTemplate
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            ActiveEntityDrawManager.SendToRenderSystem();
 
             RenderSprites.Draw(spriteBatch);
 

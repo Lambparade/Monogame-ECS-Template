@@ -33,6 +33,8 @@ namespace MGTemplate.Systems.Render_System
                          s.Scale, SpriteEffects.None, 0);
             }
 
+            Layer1.Clear();
+
             spritebatch.End();
 
         }
