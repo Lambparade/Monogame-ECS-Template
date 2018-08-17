@@ -30,7 +30,7 @@ namespace MGTemplate.Systems.Render_System
             foreach (Sprite s in Layer1)
             {
                 spritebatch.Draw(s.SpriteTexture, new Vector2((int)s.Position.Location.X, (int)s.Position.Location.Y), s.Source, Color.White, 0, Vector2.Zero,
-                         s.Scale, SpriteEffects.None, 0);
+                         10, SpriteEffects.None, 0);
             }
 
             Layer1.Clear();

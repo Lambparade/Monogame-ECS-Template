@@ -24,13 +24,11 @@ namespace MGTemplate.Entities.General_Entities.Player_Entities
             GamePosition = new Position(StartPlayerPosition.Location.X,StartPlayerPosition.Location.Y);
 
             Graphic = new Sprite(PlayerTexture, GamePosition, 1.0f);
-
-            EntityUpdater.AddToEntityUpdater(this);
         }
 
         public override void Update(GameTime gameTime)
         {
-            PlaceGraphic(1,5);
+            MoveGraphic(1,5);
         }
     }
 }

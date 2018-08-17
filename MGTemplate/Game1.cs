@@ -19,7 +19,9 @@ namespace MGTemplate
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
             IsMouseVisible = true;
+            Window.IsBorderless = true;
         }
 
         protected override void Initialize()
@@ -48,7 +50,7 @@ namespace MGTemplate
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             ActiveEntityDrawManager.SendToRenderSystem();
 
