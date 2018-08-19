@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using MGTemplate.Components;
 using MGTemplate.Entities;
 using MGTemplate.Entities.General_Entities;
-
 using MGTemplate.Systems.Content_System;
-using MGTemplate.Systems.Render_System;
 using MGTemplate.Systems.Entity_System;
+using MGTemplate.Systems.Render_System;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -20,23 +20,31 @@ namespace MGTemplate.Entities.General_Entities
 
         public Position GamePosition;
 
-        public ActiveEntity()
+        public bool Clickable;
+
+        public bool InCameraWorld;
+
+        public ActiveEntity (bool IsClickable,bool isInCameraWorld)
         {
-            EntityUpdater.AddToEntityUpdater(this);
+            Clickable = IsClickable;
+
+            InCameraWorld = isInCameraWorld;
+
+            EntityUpdater.AddToEntityUpdater (this);
         }
 
-        public abstract void Update(GameTime gameTime);
+        public abstract void Update (GameTime gameTime);
 
-        public void MoveGraphic(float x, float y)
+        public void MoveGraphic (float x, float y)
         {
-            GamePosition = new Position(GamePosition.Location.X + x, GamePosition.Location.Y + y);
+            GamePosition = new Position (GamePosition.Location.X + x, GamePosition.Location.Y + y);
 
             Graphic.Position = GamePosition;
         }
 
-        public void PlaceGraphic(float x, float y)
+        public void PlaceGraphic (float x, float y)
         {
-            GamePosition = new Position(x, y);
+            GamePosition = new Position (x, y);
 
             Graphic.Position = GamePosition;
         }

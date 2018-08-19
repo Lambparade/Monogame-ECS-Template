@@ -21,7 +21,7 @@ namespace MGTemplate.Systems.Entity_System
     {
         public static void LoadPlayer()
         {
-            Player Player1 = new Player(ContentTexture.RedBlock, new Position(10, 10));
+            Player Player1 = new Player(ContentTexture.RedBlock, new Position(10, 10),true,true);
 
             ActiveEntityDrawManager.AddToRenderQueue(Player1);
         }
