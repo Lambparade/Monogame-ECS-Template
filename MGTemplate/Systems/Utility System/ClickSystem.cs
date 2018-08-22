@@ -22,7 +22,7 @@ namespace MGTemplate.Systems.Utility_System
         public static bool IsClickedOn (Hitbox EntityHitbox, bool InCamWorld)
         {
             MouseState currentMousestate = Mouse.GetState ();
-//test
+
             bool Clicked = false;
 
             if (currentMousestate.LeftButton == ButtonState.Pressed && OldMouseState.LeftButton == ButtonState.Released)
@@ -32,7 +32,7 @@ namespace MGTemplate.Systems.Utility_System
                 if (InCamWorld)
                 {
                     //Apply Mouse Camera Transform
-                    MousePosition = new Vector2 (currentMousestate.X, currentMousestate.Y);
+                    MousePosition = Vector2.Transform(new Vector2 (currentMousestate.X, currentMousestate.Y),Matrix.Invert(CameraSystem.CameraTransform));
                 }
                 else
                 {

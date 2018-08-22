@@ -15,7 +15,6 @@ namespace MGTemplate.Managers.Graphics_Managers
     {
         static List<ActiveEntity> EntitiesToManage = new List<ActiveEntity>();
 
-
         //Will maybe use manager type later for a more modular system
         public enum ManagerType
         {
@@ -26,8 +25,9 @@ namespace MGTemplate.Managers.Graphics_Managers
 
         public static void AddToRenderQueue(ActiveEntity EntityToRender)
         {
-            if(EntityToRender.InCameraWorld){
-            EntitiesToManage.Add(EntityToRender);
+            if (EntityToRender.InCameraWorld)
+            {
+                EntitiesToManage.Add(EntityToRender);
             }
         }
 
@@ -35,7 +35,14 @@ namespace MGTemplate.Managers.Graphics_Managers
         {
             foreach (ActiveEntity s in EntitiesToManage)
             {
-                RenderSprites.AddToLayer(RenderSprites.Layer1, s.Graphic);
+                if (s.InCameraWorld)
+                {
+                    RenderSprites.AddToLayer(RenderSprites.CameraLayer1, s.Graphic);
+                }
+                else
+                {
+                    RenderSprites.AddToLayer(RenderSprites.HudLayer1, s.Graphic);
+                }
             }
         }
     }

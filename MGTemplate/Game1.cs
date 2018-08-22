@@ -12,6 +12,7 @@ namespace MGTemplate
 {
     public class Game1 : Game
     {
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -26,6 +27,8 @@ namespace MGTemplate
 
         protected override void Initialize()
         {
+            CameraSystem.StartCamera2d(graphics);
+
             base.Initialize();
         }
 
@@ -42,6 +45,7 @@ namespace MGTemplate
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            CameraSystem.Move(-1, 0);
 
             EntityUpdater.Update(gameTime);
 
@@ -54,7 +58,7 @@ namespace MGTemplate
 
             ActiveEntityDrawManager.SendToRenderSystem();
 
-            RenderSprites.Draw(spriteBatch);
+            RenderSprites.Draw(spriteBatch, GraphicsDevice);
 
             base.Draw(gameTime);
         }

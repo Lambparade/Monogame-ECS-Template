@@ -800,23 +800,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tashe\\.nuget\\packages\\": {},
+    "C:\\Users\\robinson\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Tashe\\Desktop\\Monogame-ECS-Template\\MGTemplate\\MGTemplate.csproj",
+      "projectUniqueName": "C:\\Users\\robinson\\Documents\\Monogame-ECS-Template\\MGTemplate\\MGTemplate.csproj",
       "projectName": "MGTemplate",
-      "projectPath": "c:\\Users\\Tashe\\Desktop\\Monogame-ECS-Template\\MGTemplate\\MGTemplate.csproj",
-      "packagesPath": "C:\\Users\\Tashe\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Tashe\\Desktop\\Monogame-ECS-Template\\MGTemplate\\obj\\",
+      "projectPath": "C:\\Users\\robinson\\Documents\\Monogame-ECS-Template\\MGTemplate\\MGTemplate.csproj",
+      "packagesPath": "C:\\Users\\robinson\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\robinson\\Documents\\Monogame-ECS-Template\\MGTemplate\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Tashe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\robinson\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

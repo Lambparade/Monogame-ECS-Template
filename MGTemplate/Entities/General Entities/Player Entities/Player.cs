@@ -31,7 +31,7 @@ namespace MGTemplate.Entities.General_Entities.Player_Entities
 
         public override void Update (GameTime gameTime)
         {
-            PlayerHitBox = HitboxUpdater.UpdateHitbox(GamePosition,32,32,gameTime);
+            PlayerHitBox = HitboxUpdater.UpdateHitbox(GamePosition,32,32,this.InCameraWorld);
 
             bool Click = ClickSystem.IsClickedOn(PlayerHitBox,this.InCameraWorld);
 

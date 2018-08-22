@@ -13,7 +13,7 @@ namespace MGTemplate.Systems.Entity_System
 {
     static public class HitboxUpdater
     {
-        public static Hitbox UpdateHitbox (Position EntityPosition, int HitboxWidth, int HitboxHeight, GameTime gameTime)
+        public static Hitbox UpdateHitbox (Position EntityPosition, int HitboxWidth, int HitboxHeight,bool InCamWorld)
         {
             Hitbox UpdatedHitbox = new Hitbox (new Rectangle ((int) EntityPosition.Location.X, (int) EntityPosition.Location.Y, HitboxWidth, HitboxHeight));
 
