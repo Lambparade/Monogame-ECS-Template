@@ -10,6 +10,7 @@ using MGTemplate.Managers.Graphics_Managers;
 using MGTemplate.Entities;
 using MGTemplate.Entities.General_Entities;
 using MGTemplate.Entities.General_Entities.Player_Entities;
+using MGTemplate.Entities.General_Entities.UI_Entities;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -23,7 +24,8 @@ namespace MGTemplate.Systems.Entity_System
         {
             Player Player1 = new Player(ContentTexture.RedBlock, new Position(10, 10),true,true);
 
-            ActiveEntityDrawManager.AddToRenderQueue(Player1);
+            BasicButton Button1 = new BasicButton(ContentTexture.BlueBlock,new Position(25,50),true,false);
+            ToggleButton ToggleButton = new ToggleButton(ContentTexture.BlueBlock,new Position(25,84),true,false);
         }
 
         public static void LoadEntity()

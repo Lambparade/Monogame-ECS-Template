@@ -30,6 +30,7 @@ namespace MGTemplate.Systems.Content_System
             if (ContentImages.SpriteSheet != null)
             {
                 RedBlock = new GameTexture (ContentImages.SpriteSheet, new Rectangle (32, 0, 32, 32));
+                BlueBlock = new GameTexture (ContentImages.SpriteSheet, new Rectangle (64, 400, 32, 32));
             }
         }
     }

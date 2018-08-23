@@ -22,3 +22,4 @@ C:\Users\Tashe\Desktop\Monogame-ECS-Template\MGTemplate\obj\Debug\netcoreapp2.0\
 C:\Users\Tashe\Desktop\Monogame-ECS-Template\MGTemplate\obj\Debug\netcoreapp2.0\MGTemplate.AssemblyInfo.cs
 C:\Users\Tashe\Desktop\Monogame-ECS-Template\MGTemplate\obj\Debug\netcoreapp2.0\MGTemplate.dll
 C:\Users\Tashe\Desktop\Monogame-ECS-Template\MGTemplate\obj\Debug\netcoreapp2.0\MGTemplate.pdb
+C:\Users\robinson\Documents\Monogame-ECS-Template\MGTemplate\bin\Debug\netcoreapp2.0\Content\debugfont.xnb

@@ -9,6 +9,7 @@ using MGTemplate.Systems.Content_System;
 using MGTemplate.Systems.Entity_System;
 using MGTemplate.Systems.Render_System;
 using MGTemplate.Systems.Utility_System;
+using MGTemplate.Managers.Graphics_Managers; 
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,23 +21,27 @@ namespace MGTemplate.Entities.General_Entities.Player_Entities
     {
         Hitbox PlayerHitBox;
 
-        public Player (GameTexture PlayerTexture, Position StartPlayerPosition, bool IsClickable, bool isInCameraWorld) : base (IsClickable, isInCameraWorld)
+        public Player(GameTexture PlayerTexture, Position StartPlayerPosition, bool IsClickable, bool isInCameraWorld) : base(IsClickable, isInCameraWorld)
         {
-            GamePosition = new Position (StartPlayerPosition.Location.X, StartPlayerPosition.Location.Y);
+            GamePosition = new Position(StartPlayerPosition.Location.X, StartPlayerPosition.Location.Y);
 
-            Graphic = new Sprite (PlayerTexture, GamePosition, 1.0f);
+            Graphic = new Sprite(PlayerTexture, GamePosition, 1.0f);
 
-            EntityUpdater.AddToEntityUpdater (this);
+            ActiveEntityDrawManager.AddToRenderQueue(this);
         }
 
-        public override void Update (GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
-            PlayerHitBox = HitboxUpdater.UpdateHitbox(GamePosition,32,32,this.InCameraWorld);
+            PlayerHitBox = HitboxUpdater.UpdateHitbox(GamePosition, 32, 32, this.InCameraWorld);
 
-            bool Click = ClickSystem.IsClickedOn(PlayerHitBox,this.InCameraWorld);
+            bool Click = ClickSystem.IsClickedOn(PlayerHitBox, this.InCameraWorld);
 
-            //Add systems....Movement,
-            PlaceGraphic (1, 5);
+            if (Click)
+            {
+                Graphic.GraphicColor = Color.Black;
+            }
+
+            PlaceGraphic(1, 5);
         }
     }
 }

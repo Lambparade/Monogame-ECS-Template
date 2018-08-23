@@ -7,6 +7,7 @@ using MGTemplate.Entities.General_Entities;
 using MGTemplate.Systems.Content_System;
 using MGTemplate.Systems.Entity_System;
 using MGTemplate.Systems.Render_System;
+using MGTemplate.Systems.Utility_System;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,27 +25,29 @@ namespace MGTemplate.Entities.General_Entities
 
         public bool InCameraWorld;
 
-        public ActiveEntity (bool IsClickable,bool isInCameraWorld)
+        protected ClickSystem ClickSystem = new ClickSystem();
+
+        public ActiveEntity(bool IsClickable, bool isInCameraWorld)
         {
             Clickable = IsClickable;
 
             InCameraWorld = isInCameraWorld;
 
-            EntityUpdater.AddToEntityUpdater (this);
+            EntityUpdater.AddToEntityUpdater(this);
         }
 
-        public abstract void Update (GameTime gameTime);
+        public abstract void Update(GameTime gameTime);
 
-        public void MoveGraphic (float x, float y)
+        protected void MoveGraphic(float x, float y)
         {
-            GamePosition = new Position (GamePosition.Location.X + x, GamePosition.Location.Y + y);
+            GamePosition = new Position(GamePosition.Location.X + x, GamePosition.Location.Y + y);
 
             Graphic.Position = GamePosition;
         }
 
-        public void PlaceGraphic (float x, float y)
+        protected void PlaceGraphic(float x, float y)
         {
-            GamePosition = new Position (x, y);
+            GamePosition = new Position(x, y);
 
             Graphic.Position = GamePosition;
         }

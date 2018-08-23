@@ -14,14 +14,19 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MGTemplate.Systems.Utility_System
 {
-    public static class ClickSystem
+    public class ClickSystem
     {
         private static int HitboxWidth = 1;
         private static int HitboxHeight = 1;
-        private static MouseState OldMouseState;
-        public static bool IsClickedOn (Hitbox EntityHitbox, bool InCamWorld)
+        private MouseState OldMouseState;
+
+        public ClickSystem()
         {
-            MouseState currentMousestate = Mouse.GetState ();
+
+        }
+        public bool IsClickedOn(Hitbox EntityHitbox, bool InCamWorld)
+        {
+            MouseState currentMousestate = Mouse.GetState();
 
             bool Clicked = false;
 
@@ -32,16 +37,16 @@ namespace MGTemplate.Systems.Utility_System
                 if (InCamWorld)
                 {
                     //Apply Mouse Camera Transform
-                    MousePosition = Vector2.Transform(new Vector2 (currentMousestate.X, currentMousestate.Y),Matrix.Invert(CameraSystem.CameraTransform));
+                    MousePosition = Vector2.Transform(new Vector2(currentMousestate.X, currentMousestate.Y), Matrix.Invert(CameraSystem.CameraTransform));
                 }
                 else
                 {
-                    MousePosition = new Vector2 (currentMousestate.X, currentMousestate.Y);
+                    MousePosition = new Vector2(currentMousestate.X, currentMousestate.Y);
                 }
 
-                Hitbox MouseHitbox = new Hitbox (new Rectangle ((int) MousePosition.X, currentMousestate.Y, HitboxWidth, HitboxHeight));
+                Hitbox MouseHitbox = new Hitbox(new Rectangle((int)MousePosition.X, currentMousestate.Y, HitboxWidth, HitboxHeight));
 
-                if (EntityHitbox.Bounds.Intersects (MouseHitbox.Bounds))
+                if (EntityHitbox.Bounds.Intersects(MouseHitbox.Bounds))
                 {
                     Clicked = true;
                 }
@@ -50,6 +55,36 @@ namespace MGTemplate.Systems.Utility_System
             OldMouseState = currentMousestate;
 
             return Clicked;
+        }
+
+        public bool IsHoveredOver(Hitbox EntityHitbox, bool InCamWorld)
+        {
+            MouseState currentMousestate = Mouse.GetState();
+
+            bool HoveredOver = false;
+
+            Vector2 MousePosition;
+
+            if (InCamWorld)
+            {
+                //Apply Mouse Camera Transform
+                MousePosition = Vector2.Transform(new Vector2(currentMousestate.X, currentMousestate.Y), Matrix.Invert(CameraSystem.CameraTransform));
+            }
+            else
+            {
+                MousePosition = new Vector2(currentMousestate.X, currentMousestate.Y);
+            }
+
+            Hitbox MouseHitbox = new Hitbox(new Rectangle((int)MousePosition.X, currentMousestate.Y, HitboxWidth, HitboxHeight));
+
+            if (EntityHitbox.Bounds.Intersects(MouseHitbox.Bounds))
+            {
+                HoveredOver = true;
+            }
+
+            OldMouseState = currentMousestate;
+
+            return HoveredOver;
         }
     }
 }

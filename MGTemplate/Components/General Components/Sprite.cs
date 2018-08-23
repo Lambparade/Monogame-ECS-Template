@@ -16,6 +16,8 @@ namespace MGTemplate.Components
 
         public Position Position;
 
+        public Color GraphicColor;
+
         public Sprite (GameTexture Texture,Position SpritePosition,float SpriteScale)
         {
             SpriteTexture = Texture.ContentTexture;
@@ -25,6 +27,8 @@ namespace MGTemplate.Components
             Scale = SpriteScale;
 
             Position = SpritePosition;
+
+            GraphicColor = Color.White;
         }
     }
 }

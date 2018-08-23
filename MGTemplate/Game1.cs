@@ -16,13 +16,19 @@ namespace MGTemplate
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        SpriteFont debugfont;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
+            graphics.IsFullScreen = false;
+            graphics.PreferredBackBufferHeight = 288;
+            graphics.PreferredBackBufferWidth = 512;
             IsMouseVisible = true;
             Window.IsBorderless = true;
+
+            
         }
 
         protected override void Initialize()
@@ -36,7 +42,11 @@ namespace MGTemplate
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            debugfont = Content.Load<SpriteFont>("debugfont");
+
             ContentImages.Load(this);
+
+            Debugger.StartDebugger(debugfont);
 
             LoadEntities.LoadPlayer();
         }

@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/robinson/Documents/Monogame-ECS-Template/MGTemplate/Content/TestSpriteSheet.png</SourceFile>
   <SourceTime>2018-02-01T10:36:28-05:00</SourceTime>
   <DestFile>C:/Users/robinson/Documents/Monogame-ECS-Template/MGTemplate/Content/bin/DesktopGL/TestSpriteSheet.xnb</DestFile>
-  <DestTime>2018-08-16T13:33:24.1064715-04:00</DestTime>
+  <DestTime>2018-08-23T14:05:49.3471547-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

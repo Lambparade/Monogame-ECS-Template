@@ -48,6 +48,10 @@ namespace MGTemplate.Systems.Render_System
             DrawCameraWorld(spritebatch, MainDevice);
 
             DrawOnHud(spritebatch);
+
+            Debugger.DrawDebugStrings(spritebatch);
+
+            ClearLayers();
         }
 
         private static void DrawCameraWorld(SpriteBatch spritebatch, GraphicsDevice MainGraphicsDevice)
@@ -89,7 +93,7 @@ namespace MGTemplate.Systems.Render_System
             {
                 foreach (Sprite s in LayerToDraw)
                 {
-                    spritebatch.Draw(s.SpriteTexture, new Vector2((int)s.Position.Location.X, (int)s.Position.Location.Y), s.Source, Color.White, 0, Vector2.Zero,
+                    spritebatch.Draw(s.SpriteTexture, new Vector2((int)s.Position.Location.X, (int)s.Position.Location.Y), s.Source, s.GraphicColor, 0, Vector2.Zero,
                              1, SpriteEffects.None, 0);
                 }
             }

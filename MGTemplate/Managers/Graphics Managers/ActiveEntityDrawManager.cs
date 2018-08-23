@@ -25,10 +25,7 @@ namespace MGTemplate.Managers.Graphics_Managers
 
         public static void AddToRenderQueue(ActiveEntity EntityToRender)
         {
-            if (EntityToRender.InCameraWorld)
-            {
                 EntitiesToManage.Add(EntityToRender);
-            }
         }
 
         public static void SendToRenderSystem()

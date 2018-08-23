@@ -5,5 +5,6 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/robinson/Documents/Monogame-ECS-Template/MGTemplate/Content/TestSpriteSheet.png</File>
+    <File>C:/Users/robinson/Documents/Monogame-ECS-Template/MGTemplate/Content/debugfont.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>
