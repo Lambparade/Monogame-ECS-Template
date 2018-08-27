@@ -25,6 +25,8 @@ namespace MGTemplate.Systems.Entity_System
             Player Player1 = new Player(ContentTexture.RedBlock, new Position(10, 10),true,true);
 
             BasicButton Button1 = new BasicButton(ContentTexture.BlueBlock,new Position(25,50),true,false);
+            BasicButton Button2 = new BasicButton(ContentTexture.BlueBlock,new Position(25,118),true,false);
+
             ToggleButton ToggleButton = new ToggleButton(ContentTexture.BlueBlock,new Position(25,84),true,false);
         }
 

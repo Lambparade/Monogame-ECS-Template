@@ -28,7 +28,6 @@ namespace MGTemplate
             IsMouseVisible = true;
             Window.IsBorderless = true;
 
-            
         }
 
         protected override void Initialize()
