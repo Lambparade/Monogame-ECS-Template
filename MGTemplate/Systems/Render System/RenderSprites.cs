@@ -70,13 +70,18 @@ namespace MGTemplate.Systems.Render_System
             DrawLayer(CameraLayer4, spritebatch);
             DrawLayer(CameraLayer5, spritebatch);
 
-
             spritebatch.End();
         }
 
         private static void DrawOnHud(SpriteBatch spritebatch)
         {
-            spritebatch.Begin();
+            spritebatch.Begin(SpriteSortMode.Deferred,
+         BlendState.Additive,
+         SamplerState.PointClamp,
+         null,
+         null,
+         null,
+         null);
 
             DrawLayer(HudLayer1, spritebatch);
             DrawLayer(HudLayer2, spritebatch);

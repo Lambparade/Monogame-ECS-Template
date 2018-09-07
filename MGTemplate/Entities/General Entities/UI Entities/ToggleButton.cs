@@ -20,22 +20,32 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
     {
         Hitbox ButtonHitbox;
         public bool IsClicked;
-        public ToggleButton(GameTexture ButtonTexture, Position ButtonPosition, bool IsClickable, bool isInCameraWorld) : base (IsClickable, isInCameraWorld)
+        public bool IsToggled;
+        public ToggleButton(GameTexture ButtonTexture, Position ButtonPosition, bool IsClickable, bool isInCameraWorld) : base(IsClickable, isInCameraWorld)
         {
             IsClicked = false;
-            
-            GamePosition = new Position (ButtonPosition.Location.X, ButtonPosition.Location.Y);
 
-            Graphic = new Sprite (ButtonTexture, GamePosition, 1.0f);
+            GamePosition = new Position(ButtonPosition.Location.X, ButtonPosition.Location.Y);
+
+            Graphic = new Sprite(ButtonTexture, GamePosition, 1.0f);
 
             ActiveEntityDrawManager.AddToRenderQueue(this);
         }
 
         public override void Update(GameTime gamtime)
         {
-            ButtonHitbox = HitboxUpdater.UpdateHitbox(GamePosition,32,32,this.InCameraWorld);
+            ButtonHitbox = HitboxUpdater.UpdateHitbox(GamePosition, 32, 32, this.InCameraWorld);
 
-            IsClicked = ClickSystem.IsClickedOn(ButtonHitbox,this.InCameraWorld);
+            IsToggled = ClickSystem.IsClickedOnToggle(ButtonHitbox, this.InCameraWorld, IsToggled);
+
+            if (IsToggled)
+            {
+                Graphic.GraphicColor = Color.Azure;
+            }
+            else
+            {
+                Graphic.GraphicColor = Color.Blue;
+            }
         }
     }
 }
