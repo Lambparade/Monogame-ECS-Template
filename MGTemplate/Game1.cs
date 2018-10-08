@@ -21,6 +21,8 @@ namespace MGTemplate
 
       SpriteFont debugfont;
 
+      ActiveEntityDrawManager DrawManager = new ActiveEntityDrawManager();
+
       public Game1()
       {
          graphics = new GraphicsDeviceManager(this);
@@ -72,7 +74,7 @@ namespace MGTemplate
       {
          GraphicsDevice.Clear(Color.Black);
 
-         ActiveEntityDrawManager.SendToRenderSystem();
+         DrawManager.SendToRenderSystem();
 
          RenderSprites.Draw(spriteBatch, GraphicsDevice);
 

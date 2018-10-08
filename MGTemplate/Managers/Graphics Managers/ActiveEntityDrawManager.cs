@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MGTemplate.Managers.Graphics_Managers
 {
-    public static class ActiveEntityDrawManager
+    public class ActiveEntityDrawManager
     {
         static List<ActiveEntity> EntitiesToManage = new List<ActiveEntity>();
 
@@ -28,7 +28,7 @@ namespace MGTemplate.Managers.Graphics_Managers
                 EntitiesToManage.Add(EntityToRender);
         }
 
-        public static void SendToRenderSystem()
+        public void SendToRenderSystem()
         {
             foreach (ActiveEntity s in EntitiesToManage)
             {
