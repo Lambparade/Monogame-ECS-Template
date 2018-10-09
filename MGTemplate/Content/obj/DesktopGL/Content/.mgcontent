@@ -4,7 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/robinson/Documents/Monogame-ECS-Template/MGTemplate/Content/TestSpriteSheet.png</File>
-    <File>C:/Users/robinson/Documents/Monogame-ECS-Template/MGTemplate/Content/debugfont.spritefont</File>
+    <File>/home/blue/Documents/Projects/Monogame/Monogame-ECS-Template/MGTemplate/Content/TestSpriteSheet.png</File>
+    <File>/home/blue/Documents/Projects/Monogame/Monogame-ECS-Template/MGTemplate/Content/debugfont.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>

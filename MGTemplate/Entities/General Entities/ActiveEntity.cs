@@ -40,6 +40,8 @@ namespace MGTemplate.Entities.General_Entities
 
         public abstract void Update(GameTime gameTime);
 
+        public abstract void EditModeUpdate(GameTime gameTime);
+
         protected void MoveGraphic(float x, float y)
         {
             GamePosition = new Position(GamePosition.Location.X + x, GamePosition.Location.Y + y);

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/robinson/Documents/Monogame-ECS-Template/MGTemplate/Content/TestSpriteSheet.png</SourceFile>
-  <SourceTime>2018-02-01T10:36:28-05:00</SourceTime>
-  <DestFile>C:/Users/robinson/Documents/Monogame-ECS-Template/MGTemplate/Content/bin/DesktopGL/Content/TestSpriteSheet.xnb</DestFile>
-  <DestTime>2018-08-20T11:06:12.9303449-04:00</DestTime>
+  <SourceFile>/home/blue/Documents/Projects/Monogame/Monogame-ECS-Template/MGTemplate/Content/TestSpriteSheet.png</SourceFile>
+  <SourceTime>2018-08-17T16:33:29-04:00</SourceTime>
+  <DestFile>/home/blue/Documents/Projects/Monogame/Monogame-ECS-Template/MGTemplate/Content/bin/DesktopGL/Content/TestSpriteSheet.xnb</DestFile>
+  <DestTime>2018-10-08T20:08:39-04:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2018-01-13T19:18:24-05:00</ImporterTime>
+  <ImporterTime>2018-01-13T19:18:14-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2018-01-13T19:18:24-05:00</ProcessorTime>
+  <ProcessorTime>2018-01-13T19:18:14-05:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

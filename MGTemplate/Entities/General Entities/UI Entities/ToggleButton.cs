@@ -1,14 +1,11 @@
-
 using MGTemplate.Components;
 using MGTemplate.Components.General_Components.SubComponents;
 using MGTemplate.Entities.General_Entities;
-
+using MGTemplate.Managers.Graphics_Managers;
 using MGTemplate.Systems.Content_System;
 using MGTemplate.Systems.Entity_System;
 using MGTemplate.Systems.Render_System;
 using MGTemplate.Systems.Utility_System;
-
-using MGTemplate.Managers.Graphics_Managers;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -21,22 +18,22 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
         Hitbox ButtonHitbox;
         public bool IsClicked;
         public bool IsToggled;
-        public ToggleButton(GameTexture ButtonTexture, Position ButtonPosition, bool IsClickable, bool isInCameraWorld) : base(IsClickable, isInCameraWorld)
+        public ToggleButton (GameTexture ButtonTexture, Position ButtonPosition, bool IsClickable, bool isInCameraWorld) : base (IsClickable, isInCameraWorld)
         {
             IsClicked = false;
 
-            GamePosition = new Position(ButtonPosition.Location.X, ButtonPosition.Location.Y);
+            GamePosition = new Position (ButtonPosition.Location.X, ButtonPosition.Location.Y);
 
-            Graphic = new Sprite(ButtonTexture, GamePosition, 1.0f);
+            Graphic = new Sprite (ButtonTexture, GamePosition, 1.0f);
 
-            ActiveEntityDrawManager.AddToRenderQueue(this);
+            ActiveEntityDrawManager.AddToRenderQueue (this);
         }
 
-        public override void Update(GameTime gamtime)
+        public override void Update (GameTime gamtime)
         {
-            ButtonHitbox = HitboxUpdater.UpdateHitbox(GamePosition, 32, 32, this.InCameraWorld);
+            ButtonHitbox = HitboxUpdater.UpdateHitbox (GamePosition, 32, 32, this.InCameraWorld);
 
-            IsToggled = ClickSystem.IsClickedOnToggle(ButtonHitbox, this.InCameraWorld, IsToggled);
+            IsToggled = ClickSystem.IsClickedOnToggle (ButtonHitbox, this.InCameraWorld, IsToggled);
 
             if (IsToggled)
             {
@@ -46,6 +43,10 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
             {
                 Graphic.GraphicColor = Color.Blue;
             }
+        }
+        public override void EditModeUpdate (GameTime gameTime)
+        {
+
         }
     }
 }

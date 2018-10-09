@@ -1,84 +1,85 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-
+﻿using MGTemplate.Managers.Graphics_Managers;
 using MGTemplate.Systems.Content_System;
-using MGTemplate.Systems.Render_System;
 using MGTemplate.Systems.Entity_System;
+using MGTemplate.Systems.Render_System;
 using MGTemplate.Systems.Utility_System;
 
-using MGTemplate.Managers.Graphics_Managers;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 using static MGTemplate.GameObject.GameObjects;
 
 namespace MGTemplate
 {
-   public class Game1 : Game
-   {
-      GraphicsDeviceManager graphics;
+    public class Game1 : Game
+    {
+        GraphicsDeviceManager graphics;
 
-      SpriteBatch spriteBatch;
+        SpriteBatch spriteBatch;
 
-      SpriteFont debugfont;
+        SpriteFont debugfont;
 
-      ActiveEntityDrawManager DrawManager = new ActiveEntityDrawManager();
+        ActiveEntityDrawManager DrawManager = new ActiveEntityDrawManager ();
 
-      public Game1()
-      {
-         graphics = new GraphicsDeviceManager(this);
-         Content.RootDirectory = "Content";
-         graphics.IsFullScreen = false;
-         graphics.PreferredBackBufferHeight = 288;
-         graphics.PreferredBackBufferWidth = 512;
-         IsMouseVisible = true;
-         Window.IsBorderless = true;
-      }
+        public Game1 ()
+        {
+            graphics = new GraphicsDeviceManager (this);
+            Content.RootDirectory = "Content";
+            graphics.IsFullScreen = false;
+            graphics.PreferredBackBufferHeight = 288;
+            graphics.PreferredBackBufferWidth = 512;
+            IsMouseVisible = true;
+            Window.IsBorderless = true;
 
-      protected override void Initialize()
-      {
-         CameraSystem.StartCamera2d(graphics);
+            GameStateManager.ChangeGameState (GameStateManager.GameState.MainMenu);
+        }
 
-         base.Initialize();
-      }
+        protected override void Initialize ()
+        {
+            CameraSystem.StartCamera2d (graphics);
 
-      protected override void LoadContent()
-      {
-         spriteBatch = new SpriteBatch(GraphicsDevice);
+            base.Initialize ();
+        }
 
-         debugfont = Content.Load<SpriteFont>("debugfont");
+        protected override void LoadContent ()
+        {
+            spriteBatch = new SpriteBatch (GraphicsDevice);
 
-         ContentImages.Load(this);
+            debugfont = Content.Load<SpriteFont> ("debugfont");
 
-         ContentFont.Load(this);
+            ContentImages.Load (this);
 
-         AssignGameWindow(Window);
+            ContentFont.Load (this);
 
-         AssignGraphicsDevice(GraphicsDevice);
+            AssignGameWindow (Window);
 
-         Debugger.StartDebugger(debugfont);
+            AssignGraphicsDevice (GraphicsDevice);
 
-         LoadEntities.LoadPlayer();
-      }
+            Debugger.StartDebugger (debugfont);
 
-      protected override void Update(GameTime gameTime)
-      {
-         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            Exit();
+            LoadEntities.LoadPlayer ();
+        }
 
-         EntityUpdater.Update(gameTime);
+        protected override void Update (GameTime gameTime)
+        {
+            if (GamePad.GetState (PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState ().IsKeyDown (Keys.Escape))
+                Exit ();
 
-         base.Update(gameTime);
-      }
+            EntityUpdater.Update (gameTime);
 
-      protected override void Draw(GameTime gameTime)
-      {
-         GraphicsDevice.Clear(Color.Black);
+            base.Update (gameTime);
+        }
 
-         DrawManager.SendToRenderSystem();
+        protected override void Draw (GameTime gameTime)
+        {
+            GraphicsDevice.Clear (Color.Black);
 
-         RenderSprites.Draw(spriteBatch, GraphicsDevice);
+            DrawManager.SendToRenderSystem ();
 
-         base.Draw(gameTime);
-      }
-   }
+            RenderSprites.Draw (spriteBatch, GraphicsDevice);
+
+            base.Draw (gameTime);
+        }
+    }
 }
