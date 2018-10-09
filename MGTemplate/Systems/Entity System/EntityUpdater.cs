@@ -22,9 +22,19 @@ namespace MGTemplate.Systems.Entity_System
 
         public static void Update(GameTime gameTime)
         {
-            foreach (ActiveEntity e in Entities)
+            if (GameStateManager.CurrentGameState != GameStateManager.GameState.EditMode)
             {
-                e.Update(gameTime);
+                foreach (ActiveEntity e in Entities)
+                {
+                    e.Update(gameTime);
+                }
+            }
+            else
+            {
+                foreach (ActiveEntity e in Entities)
+                {
+                    e.EditModeUpdate(gameTime);
+                }
             }
         }
     }

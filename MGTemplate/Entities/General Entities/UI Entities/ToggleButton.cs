@@ -18,22 +18,23 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
         Hitbox ButtonHitbox;
         public bool IsClicked;
         public bool IsToggled;
-        public ToggleButton (GameTexture ButtonTexture, Position ButtonPosition, bool IsClickable, bool isInCameraWorld) : base (IsClickable, isInCameraWorld)
+        public bool IsFocused;
+        public ToggleButton(GameTexture ButtonTexture, Position ButtonPosition, bool IsClickable, bool isInCameraWorld) : base(IsClickable, isInCameraWorld)
         {
             IsClicked = false;
 
-            GamePosition = new Position (ButtonPosition.Location.X, ButtonPosition.Location.Y);
+            GamePosition = new Position(ButtonPosition.Location.X, ButtonPosition.Location.Y);
 
-            Graphic = new Sprite (ButtonTexture, GamePosition, 1.0f);
+            Graphic = new Sprite(ButtonTexture, GamePosition, 1.0f);
 
-            ActiveEntityDrawManager.AddToRenderQueue (this);
+            ActiveEntityDrawManager.AddToRenderQueue(this);
         }
 
-        public override void Update (GameTime gamtime)
+        public override void Update(GameTime gamtime)
         {
-            ButtonHitbox = HitboxUpdater.UpdateHitbox (GamePosition, 32, 32, this.InCameraWorld);
+            ButtonHitbox = HitboxUpdater.UpdateHitbox(GamePosition, 32, 32, this.InCameraWorld);
 
-            IsToggled = ClickSystem.IsClickedOnToggle (ButtonHitbox, this.InCameraWorld, IsToggled);
+            IsToggled = ClickSystem.IsClickedOnToggle(ButtonHitbox, this.InCameraWorld, IsToggled);
 
             if (IsToggled)
             {
@@ -44,9 +45,18 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
                 Graphic.GraphicColor = Color.Blue;
             }
         }
-        public override void EditModeUpdate (GameTime gameTime)
+        public override void EditModeUpdate(GameTime gameTime)
         {
+            ButtonHitbox = HitboxUpdater.UpdateHitbox(GamePosition, 32, 32, this.InCameraWorld);
 
+            IsFocused = ClickSystem.IsInFocus(ButtonHitbox, this.InCameraWorld, IsFocused);
+
+            if (IsFocused && ClickSystem.IsMouseDown())
+            {
+                MouseState CurrentMouseState = Mouse.GetState();
+
+                PlaceGraphic(CurrentMouseState.X - 5, CurrentMouseState.Y - 16);
+            }
         }
     }
 }

@@ -4,9 +4,12 @@ using MGTemplate.Systems.Entity_System;
 using MGTemplate.Systems.Render_System;
 using MGTemplate.Systems.Utility_System;
 
+using MGTemplate.Systems.Utility_System.GameKeyboard;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 
 using static MGTemplate.GameObject.GameObjects;
 
@@ -20,11 +23,13 @@ namespace MGTemplate
 
         SpriteFont debugfont;
 
-        ActiveEntityDrawManager DrawManager = new ActiveEntityDrawManager ();
+        ActiveEntityDrawManager DrawManager = new ActiveEntityDrawManager();
 
-        public Game1 ()
+        GameKeyboardSystem GameKeybaord = new GameKeyboardSystem();
+
+        public Game1()
         {
-            graphics = new GraphicsDeviceManager (this);
+            graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             graphics.IsFullScreen = false;
             graphics.PreferredBackBufferHeight = 288;
@@ -32,54 +37,58 @@ namespace MGTemplate
             IsMouseVisible = true;
             Window.IsBorderless = true;
 
-            GameStateManager.ChangeGameState (GameStateManager.GameState.MainMenu);
+            GameStateManager.ChangeGameState(GameStateManager.GameState.MainMenu);
         }
 
-        protected override void Initialize ()
+        protected override void Initialize()
         {
-            CameraSystem.StartCamera2d (graphics);
+            CameraSystem.StartCamera2d(graphics);
 
-            base.Initialize ();
+            base.Initialize();
         }
 
-        protected override void LoadContent ()
+        protected override void LoadContent()
         {
-            spriteBatch = new SpriteBatch (GraphicsDevice);
+            spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            debugfont = Content.Load<SpriteFont> ("debugfont");
+            debugfont = Content.Load<SpriteFont>("debugfont");
 
-            ContentImages.Load (this);
+            ContentImages.Load(this);
 
-            ContentFont.Load (this);
+            ContentFont.Load(this);
 
-            AssignGameWindow (Window);
+            AssignGameWindow(Window);
 
-            AssignGraphicsDevice (GraphicsDevice);
+            AssignGraphicsDevice(GraphicsDevice);
 
-            Debugger.StartDebugger (debugfont);
+            Debugger.StartDebugger(debugfont);
 
-            LoadEntities.LoadPlayer ();
+            LoadEntities.LoadPlayer();
         }
 
-        protected override void Update (GameTime gameTime)
+        protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState (PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState ().IsKeyDown (Keys.Escape))
-                Exit ();
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
 
-            EntityUpdater.Update (gameTime);
+            Debugger.AddDebug(GameStateManager.CurrentGameState.ToString());
 
-            base.Update (gameTime);
+            GameKeybaord.Update(gameTime);
+
+            EntityUpdater.Update(gameTime);
+
+            base.Update(gameTime);
         }
 
-        protected override void Draw (GameTime gameTime)
+        protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear (Color.Black);
+            GraphicsDevice.Clear(Color.Black);
 
-            DrawManager.SendToRenderSystem ();
+            DrawManager.SendToRenderSystem();
 
-            RenderSprites.Draw (spriteBatch, GraphicsDevice);
+            RenderSprites.Draw(spriteBatch, GraphicsDevice);
 
-            base.Draw (gameTime);
+            base.Draw(gameTime);
         }
     }
 }

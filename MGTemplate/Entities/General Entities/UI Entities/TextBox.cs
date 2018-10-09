@@ -5,6 +5,8 @@ using MGTemplate.Systems.Entity_System;
 using MGTemplate.Systems.Utility_System;
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace MGTemplate.Entities.General_Entities.UI_Entities
 {
@@ -33,9 +35,19 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
 
             TextBoxInputSystem.InputTextBox (IsFocused, GameTime, Graphic, TextBoxHitBox);
         }
-        public override void EditModeUpdate (GameTime gameTime)
+        
+        public override void EditModeUpdate(GameTime gameTime)
         {
+            TextBoxHitBox = HitboxUpdater.UpdateHitbox(GamePosition, 100, 32, this.InCameraWorld);
 
+            IsFocused = ClickSystem.IsInFocus(TextBoxHitBox,this.InCameraWorld,IsFocused);
+
+            if (IsFocused && ClickSystem.IsMouseDown())
+            {
+                MouseState CurrentMouseState = Mouse.GetState();
+
+                PlaceGraphic(CurrentMouseState.X - 5, CurrentMouseState.Y -16);
+            }
         }
     }
 }

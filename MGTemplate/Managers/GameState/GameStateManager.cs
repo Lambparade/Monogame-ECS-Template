@@ -8,6 +8,8 @@ namespace MGTemplate
 
             EditMode,
 
+            DebugMode,
+
             MainMenu,
 
             Options,

@@ -21,13 +21,29 @@ namespace MGTemplate.Systems.Utility_System
 
         //MouseStates for each system. Must be different for each system to work in combination with each other
         private MouseState IsClickedOldMouseState;
+        private MouseState IsHeldDownOldMouseState;
         private MouseState IsClickedToggledOldMouseState;
         private MouseState IsInFocusOldMouseState;
         private MouseState IsHoveredOldMouseState;
+        private MouseState IsMouseDownOldMouseState;
 
         public ClickSystem()
         {
 
+        }
+
+        public bool IsMouseDown()
+        {
+            bool MouseDown = false;
+
+            MouseState currentMousestate = Mouse.GetState();
+
+            if (currentMousestate.LeftButton == ButtonState.Pressed)
+            {
+                MouseDown =  true;
+            }
+
+            return MouseDown;
         }
         public bool IsClickedOn(Hitbox EntityHitbox, bool InCamWorld)
         {
@@ -61,6 +77,40 @@ namespace MGTemplate.Systems.Utility_System
 
             return Clicked;
         }
+
+        public bool IsHeldDownClick(Hitbox EntityHitbox, bool InCamWorld)
+        {
+            MouseState currentMousestate = Mouse.GetState();
+
+            bool Clicked = false;
+
+            if (currentMousestate.LeftButton == ButtonState.Pressed)
+            {
+                Vector2 MousePosition;
+
+                if (InCamWorld)
+                {
+                    //Apply Mouse Camera Transform
+                    MousePosition = Vector2.Transform(new Vector2(currentMousestate.X, currentMousestate.Y), Matrix.Invert(CameraSystem.CameraTransform));
+                }
+                else
+                {
+                    MousePosition = new Vector2(currentMousestate.X, currentMousestate.Y);
+                }
+
+                Hitbox MouseHitbox = new Hitbox(new Rectangle((int)MousePosition.X, currentMousestate.Y, HitboxWidth, HitboxHeight));
+
+                if (EntityHitbox.Bounds.Intersects(MouseHitbox.Bounds))
+                {
+                    Clicked = true;
+                }
+            }
+
+            IsClickedOldMouseState = currentMousestate;
+
+            return Clicked;
+        }
+
         public bool IsClickedOnToggle(Hitbox EntityHitbox, bool InCamWorld, bool WasClicked)
         {
             MouseState currentMousestate = Mouse.GetState();
