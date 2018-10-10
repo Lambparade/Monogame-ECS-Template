@@ -20,7 +20,7 @@ namespace MGTemplate.Entities.General_Entities.Player_Entities
     {
         Hitbox PlayerHitBox;
 
-        public Player (GameTexture PlayerTexture, Position StartPlayerPosition, bool IsClickable, bool isInCameraWorld) : base (IsClickable, isInCameraWorld)
+        public Player (GameTexture PlayerTexture, Position StartPlayerPosition, bool IsClickable, bool isInCameraWorld,int RenderLayer) : base (IsClickable, isInCameraWorld,RenderLayer)
         {
             GamePosition = new Position (StartPlayerPosition.Location.X, StartPlayerPosition.Location.Y);
 

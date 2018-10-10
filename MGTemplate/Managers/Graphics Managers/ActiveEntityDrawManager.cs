@@ -25,7 +25,7 @@ namespace MGTemplate.Managers.Graphics_Managers
 
         public static void AddToRenderQueue(ActiveEntity EntityToRender)
         {
-                EntitiesToManage.Add(EntityToRender);
+            EntitiesToManage.Add(EntityToRender);
         }
 
         public void SendToRenderSystem()
@@ -34,12 +34,72 @@ namespace MGTemplate.Managers.Graphics_Managers
             {
                 if (s.InCameraWorld)
                 {
-                    RenderSprites.AddToLayer(RenderSprites.CameraLayer1, s.Graphic);
+                    AssignCameraLayers(s);
                 }
                 else
                 {
-                    RenderSprites.AddToLayer(RenderSprites.HudLayer1, s.Graphic);
+                    AssignHudLayers(s);
                 }
+            }
+        }
+
+        private void AssignCameraLayers(ActiveEntity EntityToRender)
+        {
+            switch (EntityToRender.CurrentRenderLayer)
+            {
+                case 1:
+                    RenderSprites.AddToLayer(RenderSprites.CameraLayer1, EntityToRender.Graphic);
+                    break;
+
+                case 2:
+                    RenderSprites.AddToLayer(RenderSprites.CameraLayer2, EntityToRender.Graphic);
+                    break;
+
+                case 3:
+                    RenderSprites.AddToLayer(RenderSprites.CameraLayer3, EntityToRender.Graphic);
+                    break;
+
+                case 4:
+                    RenderSprites.AddToLayer(RenderSprites.CameraLayer4, EntityToRender.Graphic);
+                    break;
+
+                case 5:
+                    RenderSprites.AddToLayer(RenderSprites.CameraLayer5, EntityToRender.Graphic);
+                    break;
+
+                default:
+                    RenderSprites.AddToLayer(RenderSprites.CameraLayer1, EntityToRender.Graphic);
+                    break;
+            }
+        }
+
+        private void AssignHudLayers(ActiveEntity EntityToRender)
+        {
+            switch (EntityToRender.CurrentRenderLayer)
+            {
+                case 1:
+                    RenderSprites.AddToLayer(RenderSprites.HudLayer1, EntityToRender.Graphic);
+                    break;
+
+                case 2:
+                    RenderSprites.AddToLayer(RenderSprites.HudLayer2, EntityToRender.Graphic);
+                    break;
+
+                case 3:
+                    RenderSprites.AddToLayer(RenderSprites.HudLayer3, EntityToRender.Graphic);
+                    break;
+
+                case 4:
+                    RenderSprites.AddToLayer(RenderSprites.HudLayer4, EntityToRender.Graphic);
+                    break;
+
+                case 5:
+                    RenderSprites.AddToLayer(RenderSprites.HudLayer5, EntityToRender.Graphic);
+                    break;
+
+                default:
+                    RenderSprites.AddToLayer(RenderSprites.HudLayer1, EntityToRender.Graphic);
+                    break;
             }
         }
     }

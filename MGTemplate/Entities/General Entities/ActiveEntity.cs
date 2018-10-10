@@ -27,13 +27,17 @@ namespace MGTemplate.Entities.General_Entities
 
         public bool InCameraWorld;
 
+        public int CurrentRenderLayer = 0;
+
         protected ClickSystem ClickSystem = new ClickSystem();
 
-        public ActiveEntity(bool IsClickable, bool isInCameraWorld)
+        public ActiveEntity(bool IsClickable, bool isInCameraWorld,int RenderLayer)
         {
             Clickable = IsClickable;
 
             InCameraWorld = isInCameraWorld;
+
+            CurrentRenderLayer = RenderLayer;
 
             EntityUpdater.AddToEntityUpdater(this);
         }

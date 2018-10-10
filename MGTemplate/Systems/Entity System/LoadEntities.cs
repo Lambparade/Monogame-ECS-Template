@@ -22,15 +22,15 @@ namespace MGTemplate.Systems.Entity_System
     {
         public static void LoadPlayer()
         {
-            Player Player1 = new Player(ContentTexture.RedBlock, new Position(10, 10),true,true);
+            Player Player1 = new Player(ContentTexture.RedBlock, new Position(10, 10),true,true,1);
 
-            BasicButton Button1 = new BasicButton(ContentTexture.BlueBlock,new Position(25,50),true,false);
-            BasicButton Button2 = new BasicButton(ContentTexture.BlueBlock,new Position(25,118),true,false);
+            BasicButton Button1 = new BasicButton(ContentTexture.BlueBlock,new Position(25,50),true,false,1);
+            BasicButton Button2 = new BasicButton(ContentTexture.BlueBlock,new Position(25,118),true,false,1);
 
-            ToggleButton ToggleButton = new ToggleButton(ContentTexture.BlueBlock,new Position(25,84),true,false);
+            ToggleButton ToggleButton = new ToggleButton(ContentTexture.BlueBlock,new Position(25,84),true,false,1);
 
-            TextBox Box = new TextBox(ContentTexture.RedBlock,new Position(125,84),true,false);
-            TextBox Boxd = new TextBox(ContentTexture.RedBlock,new Position(125,118),true,false);
+            TextBox Box = new TextBox(ContentTexture.RedBlock,new Position(125,84),true,false,1);
+            TextBox Boxd = new TextBox(ContentTexture.RedBlock,new Position(125,118),true,false,1);
         }
 
         public static void LoadEntity()

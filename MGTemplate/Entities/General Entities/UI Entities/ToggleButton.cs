@@ -19,7 +19,7 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
         public bool IsClicked;
         public bool IsToggled;
         public bool IsFocused;
-        public ToggleButton(GameTexture ButtonTexture, Position ButtonPosition, bool IsClickable, bool isInCameraWorld) : base(IsClickable, isInCameraWorld)
+        public ToggleButton(GameTexture ButtonTexture, Position ButtonPosition, bool IsClickable, bool isInCameraWorld, int Renderlayer) : base(IsClickable, isInCameraWorld, Renderlayer)
         {
             IsClicked = false;
 

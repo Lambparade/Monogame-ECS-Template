@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MGTemplate
 {
-    public class Component
+    public abstract class Component
     {
         public Component ()
         { 

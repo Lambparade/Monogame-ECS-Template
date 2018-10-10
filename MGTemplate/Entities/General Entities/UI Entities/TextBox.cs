@@ -18,7 +18,7 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
 
         TextInputSystem TextBoxInputSystem = new TextInputSystem ();
 
-        public TextBox (GameTexture TextBoxTexture, Position TextBoxPosition, bool IsClickable, bool isInCameraWorld) : base (IsClickable, isInCameraWorld)
+        public TextBox (GameTexture TextBoxTexture, Position TextBoxPosition, bool IsClickable, bool isInCameraWorld,int RenderLayer) : base (IsClickable, isInCameraWorld,RenderLayer)
         {
             GamePosition = new Position (TextBoxPosition.Location.X, TextBoxPosition.Location.Y);
 

@@ -16,17 +16,18 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
     public class BasicButton : ActiveEntity
     {
         Hitbox ButtonHitbox;
-
         public bool IsClicked;
         public bool IsFocused;
 
-        public BasicButton(GameTexture ButtonTexture, Position ButtonPosition, bool IsClickable, bool isInCameraWorld) : base(IsClickable, isInCameraWorld)
+        public BasicButton(GameTexture ButtonTexture, Position ButtonPosition, bool IsClickable, bool isInCameraWorld,int RenderLayer) : base(IsClickable, isInCameraWorld,RenderLayer)
         {
             IsClicked = false;
 
             GamePosition = new Position(ButtonPosition.Location.X, ButtonPosition.Location.Y);
 
             Graphic = new Sprite(ButtonTexture, GamePosition, 1.0f);
+
+            CurrentRenderLayer = RenderLayer;
 
             ActiveEntityDrawManager.AddToRenderQueue(this);
         }
