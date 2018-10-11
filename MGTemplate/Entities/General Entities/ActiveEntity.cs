@@ -23,18 +23,14 @@ namespace MGTemplate.Entities.General_Entities
 
         public Position GamePosition;
 
-        public bool Clickable;
-
         public bool InCameraWorld;
 
         public int CurrentRenderLayer = 0;
 
         protected ClickSystem ClickSystem = new ClickSystem();
 
-        public ActiveEntity(bool IsClickable, bool isInCameraWorld,int RenderLayer)
+        public ActiveEntity(bool isInCameraWorld,int RenderLayer)
         {
-            Clickable = IsClickable;
-
             InCameraWorld = isInCameraWorld;
 
             CurrentRenderLayer = RenderLayer;

@@ -1,4 +1,5 @@
 ﻿using MGTemplate.Managers.Graphics_Managers;
+using MGTemplate.Managers.UI_Managers;
 using MGTemplate.Systems.Content_System;
 using MGTemplate.Systems.Entity_System;
 using MGTemplate.Systems.Render_System;
@@ -25,16 +26,21 @@ namespace MGTemplate
 
         ActiveEntityDrawManager DrawManager = new ActiveEntityDrawManager();
 
+        UIManager MasterUIManger = new UIManager();
+
         GameKeyboardSystem GameKeybaord = new GameKeyboardSystem();
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
             graphics.IsFullScreen = false;
             graphics.PreferredBackBufferHeight = 288;
             graphics.PreferredBackBufferWidth = 512;
+
+            Content.RootDirectory = "Content";
+
             IsMouseVisible = true;
+
             Window.IsBorderless = true;
 
             GameStateManager.ChangeGameState(GameStateManager.GameState.MainMenu);
