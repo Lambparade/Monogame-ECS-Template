@@ -3,6 +3,8 @@ Hitbox system-x
 Mouse system-x
 
 Camera system-x
+
+Add Layers to picking elements within the same render layer. NOTE: Not 100% needed but should implement.
 _____________________
 
 KeyboardSystem******

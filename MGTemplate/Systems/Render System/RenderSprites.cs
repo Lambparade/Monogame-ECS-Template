@@ -76,7 +76,7 @@ namespace MGTemplate.Systems.Render_System
         private static void DrawOnHud(SpriteBatch spritebatch)
         {
             spritebatch.Begin(SpriteSortMode.Deferred,
-         BlendState.Additive,
+         BlendState.AlphaBlend,
          SamplerState.PointClamp,
          null,
          null,
@@ -99,7 +99,7 @@ namespace MGTemplate.Systems.Render_System
                 foreach (Sprite s in LayerToDraw)
                 {
                     spritebatch.Draw(s.SpriteTexture, new Vector2((int)s.Position.Location.X, (int)s.Position.Location.Y), s.Source, s.GraphicColor, 0, Vector2.Zero,
-                             1, SpriteEffects.None, 0);
+                             s.Scale, SpriteEffects.None, 0);
                 }
             }
         }

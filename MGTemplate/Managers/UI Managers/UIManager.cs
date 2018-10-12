@@ -37,7 +37,6 @@ namespace MGTemplate.Managers.UI_Managers
             }
 
             return ControlToggled;
-
         }
     }
 }

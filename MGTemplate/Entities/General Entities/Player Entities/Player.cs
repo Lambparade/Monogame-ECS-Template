@@ -37,8 +37,6 @@ namespace MGTemplate.Entities.General_Entities.Player_Entities
         {
             PlayerHitBox = HitboxUpdater.UpdateHitbox(GamePosition, 32, 32, this.InCameraWorld);
 
-            //bool Click = ClickSystem.IsClickedOn(PlayerHitBox, this.InCameraWorld);
-
             bool IsToggleButtonOn = UserControlSystem.ToggleControl(201);
 
             if (IsToggleButtonOn)

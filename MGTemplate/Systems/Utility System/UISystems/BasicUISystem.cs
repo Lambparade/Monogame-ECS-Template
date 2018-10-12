@@ -11,7 +11,6 @@ using MGTemplate.Systems.Render_System;
 
 using MGTemplate.Managers.UI_Managers;
 
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
