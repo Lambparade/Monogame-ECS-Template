@@ -30,8 +30,13 @@ namespace MGTemplate.Managers.Graphics_Managers
 
         public void SendToRenderSystem()
         {
-            foreach (ActiveEntity s in EntitiesToManage)
+            foreach (ActiveEntity s in EntitiesToManage.ToArray())
             {
+                if (s.ToBeRemoved)
+                {
+                    EntitiesToManage.Remove(s);
+                    continue;
+                }
                 if (s.InCameraWorld)
                 {
                     AssignCameraLayers(s);

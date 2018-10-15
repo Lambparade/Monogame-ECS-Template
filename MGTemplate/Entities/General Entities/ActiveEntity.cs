@@ -29,7 +29,9 @@ namespace MGTemplate.Entities.General_Entities
 
         protected ClickSystem ClickSystem = new ClickSystem();
 
-        public ActiveEntity(bool isInCameraWorld,int RenderLayer)
+        internal bool ToBeRemoved;
+
+        public ActiveEntity(bool isInCameraWorld, int RenderLayer)
         {
             InCameraWorld = isInCameraWorld;
 
@@ -54,6 +56,11 @@ namespace MGTemplate.Entities.General_Entities
             GamePosition = new Position(x, y);
 
             Graphic.Position = GamePosition;
+        }
+
+        protected void RemoveEntity()
+        {
+            ToBeRemoved = true;
         }
     }
 }

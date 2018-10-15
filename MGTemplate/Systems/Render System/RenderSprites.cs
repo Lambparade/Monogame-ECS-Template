@@ -64,6 +64,7 @@ namespace MGTemplate.Systems.Render_System
          null,
          CameraSystem.get_transformation(MainGraphicsDevice));
 
+
             DrawLayer(CameraLayer1, spritebatch);
             DrawLayer(CameraLayer2, spritebatch);
             DrawLayer(CameraLayer3, spritebatch);

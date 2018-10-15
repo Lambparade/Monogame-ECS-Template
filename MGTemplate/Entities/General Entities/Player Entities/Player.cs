@@ -41,6 +41,7 @@ namespace MGTemplate.Entities.General_Entities.Player_Entities
 
             if (IsToggleButtonOn)
             {
+                RemoveEntity();
                 Graphic.GraphicColor = Color.BlueViolet;
             }
             else

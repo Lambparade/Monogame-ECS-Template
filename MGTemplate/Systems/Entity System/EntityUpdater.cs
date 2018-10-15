@@ -22,6 +22,8 @@ namespace MGTemplate.Systems.Entity_System
 
         public static void Update(GameTime gameTime)
         {
+            RemoveUnusedEntities();
+
             if (GameStateManager.CurrentGameState != GameStateManager.GameState.EditMode)
             {
                 foreach (ActiveEntity e in Entities)
@@ -36,6 +38,18 @@ namespace MGTemplate.Systems.Entity_System
                     e.EditModeUpdate(gameTime);
                 }
             }
+        }
+
+        private static void RemoveUnusedEntities()
+        {
+            foreach (ActiveEntity e in Entities.ToArray())
+            {
+                if (e.ToBeRemoved)
+                {
+                    Entities.Remove(e);
+                }
+            }
+
         }
     }
 }
