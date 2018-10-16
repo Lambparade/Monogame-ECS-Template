@@ -17,7 +17,6 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
     {
         Hitbox ButtonHitbox;
         public bool IsClicked;
-        public bool IsFocused;
 
         public BasicButton(GameTexture ButtonTexture, Position ButtonPosition, bool isInCameraWorld, int RenderLayer, int ControlID) : base(isInCameraWorld, RenderLayer,ControlID)
         {

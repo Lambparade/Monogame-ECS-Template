@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using MGTemplate.Components;
 using MGTemplate.Entities.General_Entities;
@@ -9,6 +10,7 @@ using MGTemplate.Entities.General_Entities.UI_Entities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 
 namespace MGTemplate.Managers.UI_Managers
 {
@@ -24,19 +26,49 @@ namespace MGTemplate.Managers.UI_Managers
             ActiveUserControls.Add(EntityToRender);
         }
 
+        public static bool CheckClickControl(int ControlID)
+        {
+            bool ControlClicked = false;
+
+            foreach (BasicButton Control in ActiveUserControls.OfType<BasicButton>())
+            {
+                if (Control.UserControlID == ControlID)
+                {
+                    ControlClicked = Control.IsClicked;
+                }
+            }
+
+            return ControlClicked;
+        }
+
         public static bool CheckToggleControl(int ControlID)
         {
             bool ControlToggled = false;
+
+            foreach (ToggleButton Control in ActiveUserControls.OfType<ToggleButton>())
+            {
+                if (Control.UserControlID == ControlID)
+                {
+                    ControlToggled = Control.IsToggled;
+                }
+            }
+
+            return ControlToggled;
+        }
+
+        public static bool CheckFocusControl(int ControlID)
+        {
+            bool ControlFocused = false;
 
             foreach (UserControl Control in ActiveUserControls)
             {
                 if (Control.UserControlID == ControlID)
                 {
-                    ControlToggled = (Control as ToggleButton).IsToggled;
+                    ControlFocused = Control.IsFocused;
                 }
             }
 
-            return ControlToggled;
+            return ControlFocused;
         }
     }
 }

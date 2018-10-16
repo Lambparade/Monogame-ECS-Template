@@ -34,8 +34,8 @@ namespace MGTemplate
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.IsFullScreen = false;
-            graphics.PreferredBackBufferHeight = 288;
-            graphics.PreferredBackBufferWidth = 512;
+            graphics.PreferredBackBufferHeight = 288 * 2;
+            graphics.PreferredBackBufferWidth = 512*2;
 
             Content.RootDirectory = "Content";
 

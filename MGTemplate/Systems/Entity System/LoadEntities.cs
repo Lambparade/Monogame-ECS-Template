@@ -25,7 +25,7 @@ namespace MGTemplate.Systems.Entity_System
         {
             Player Player1 = new Player(ContentTexture.RedBlock, new Position(10, 10), true, 1);
 
-            BasicPanel Panel = new BasicPanel(ContentTexture.RedBlock, new Position(225, 118), false, 1, 401);
+          BasicPanel Panel = new BasicPanel(ContentTexture.RedBlock, new Position(225, 118), false, 1, 401);
 
             BasicButton Button1 = new BasicButton(ContentTexture.BlueBlock, new Position(25, 50), false, 1, 101);
 
@@ -33,9 +33,9 @@ namespace MGTemplate.Systems.Entity_System
 
             ToggleButton ToggleButton = new ToggleButton(ContentTexture.BlueBlock, new Position(25, 84), false, 1, 201);
 
-            TextBox Box = new TextBox(ContentTexture.RedBlock, new Position(125, 84), false, 1, 301);
+            TextBox Box = new TextBox(ContentTexture.WhiteBlock, new Position(125, 84), false, 1, 301);
 
-            TextBox Boxd = new TextBox(ContentTexture.RedBlock, new Position(125, 118), false, 1, 302);
+            TextBox Boxd = new TextBox(ContentTexture.WhiteBlock, new Position(125, 118), false, 1, 302);
         }
 
         public static void LoadEntity()

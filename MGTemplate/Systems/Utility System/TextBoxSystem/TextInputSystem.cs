@@ -22,7 +22,10 @@ namespace MGTemplate.Systems.Utility_System
     {
         EventHandler<TextInputEventArgs> onTextEntered;
 
-        private string TextStringEntered = string.Empty;
+        private string CurrentTextEntered = string.Empty;
+
+        public string TextStringReturned = string.Empty;
+        
 
         public bool IsTextBoxInfocus { get; set; }
 
@@ -53,13 +56,13 @@ namespace MGTemplate.Systems.Utility_System
 
             InputSystemGraphicsDevice.SetRenderTarget(TextboxGraphic);
 
-            InputSystemGraphicsDevice.Clear(Color.MediumPurple);
+            InputSystemGraphicsDevice.Clear(Color.Purple);
 
             SpriteBatch RenderSpriteBatch = new SpriteBatch(InputSystemGraphicsDevice);
 
             RenderSpriteBatch.Begin();
 
-            RenderSpriteBatch.DrawString(ContentFont.SpriteFont, TextStringEntered, new Vector2(0, 8), Color.White);
+            RenderSpriteBatch.DrawString(ContentFont.SpriteFont,CurrentTextEntered, new Vector2(0, 8), Color.White);
 
             if (IsTextBoxInfocus)
             {
@@ -70,13 +73,11 @@ namespace MGTemplate.Systems.Utility_System
 
             InputSystemGraphicsDevice.SetRenderTarget(null);
 
-            Vector2 size = ContentFont.SpriteFont.MeasureString(TextStringEntered);
+            Vector2 size = ContentFont.SpriteFont.MeasureString(CurrentTextEntered);
 
             StringLength = (int)size.X;
 
             TextBoxSprite.SpriteTexture = TextboxGraphic as Texture2D;
-
-            TextBoxSprite.Source = new Rectangle(0, 0, 100, 32);
         }
 
         private void AssignTextEvents(GameWindow Window)
@@ -111,6 +112,7 @@ namespace MGTemplate.Systems.Utility_System
                 }
                 else if (e.Character == '\r')
                 {
+                    TextStringReturned = CurrentTextEntered;
                     return;
                 }
                 else
@@ -122,18 +124,18 @@ namespace MGTemplate.Systems.Utility_System
 
         private void BuildString(char CharEntered)
         {
-            TextStringEntered += CharEntered.ToString();
+            CurrentTextEntered += CharEntered.ToString();
         }
 
         private void DeleteChar()
         {
-            if (!string.IsNullOrEmpty(TextStringEntered))
+            if (!string.IsNullOrEmpty(CurrentTextEntered))
             {
-                char LastKey = TextStringEntered[TextStringEntered.Length - 1];
+                char LastKey = CurrentTextEntered[CurrentTextEntered.Length - 1];
 
-                string NewText = TextStringEntered.Substring(0, TextStringEntered.Length - 1);
+                string NewText = CurrentTextEntered.Substring(0, CurrentTextEntered.Length - 1);
 
-                TextStringEntered = NewText;
+                CurrentTextEntered = NewText;
             }
         }
     }

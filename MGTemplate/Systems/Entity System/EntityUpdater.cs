@@ -49,7 +49,6 @@ namespace MGTemplate.Systems.Entity_System
                     Entities.Remove(e);
                 }
             }
-
         }
     }
 }

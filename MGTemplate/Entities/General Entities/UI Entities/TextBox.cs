@@ -17,10 +17,12 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
     {
         Hitbox TextBoxHitBox;
 
-        public bool IsFocused;
-
         TextInputSystem TextBoxInputSystem = new TextInputSystem();
 
+        public string TextBoxInput;
+
+        private int ControlWidth = 100;
+        private int ControlHeight = 32;
         public TextBox(GameTexture TextBoxTexture, Position TextBoxPosition, bool isInCameraWorld, int RenderLayer,int ControlID) : base(isInCameraWorld,RenderLayer,ControlID)
         {
             GamePosition = new Position(TextBoxPosition.Location.X, TextBoxPosition.Location.Y);
@@ -34,11 +36,13 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
 
         public override void Update(GameTime gameTime)
         {
-            TextBoxHitBox = HitboxUpdater.UpdateHitbox(GamePosition, 100, 32, this.InCameraWorld);
+            TextBoxHitBox = HitboxUpdater.UpdateHitbox(GamePosition, ControlWidth, ControlHeight, this.InCameraWorld);
 
             IsFocused = ClickSystem.IsInFocus(TextBoxHitBox, this.InCameraWorld, IsFocused);
 
             TextBoxInputSystem.InputTextBox(IsFocused, gameTime, Graphic, TextBoxHitBox);
+
+            TextBoxInput = TextBoxInputSystem.TextStringReturned;
         }
 
         public override void EditModeUpdate(GameTime gameTime)

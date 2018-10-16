@@ -18,7 +18,6 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities.PanelEntities
     {
         Hitbox PanelHitbox;
         public bool IsClicked;
-        public bool IsFocused;
 
         public BasicPanel(GameTexture PanelTexture, Position PanelPosition, bool isInCameraWorld, int RenderLayer, int ControlID) : base(isInCameraWorld, RenderLayer, ControlID)
         {

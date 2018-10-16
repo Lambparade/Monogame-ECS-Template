@@ -20,6 +20,7 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
     public abstract class UserControl : ActiveEntity
     {
         public int UserControlID { get; protected set; } = 0;
+        public bool IsFocused;
         public UserControl(bool isInCameraWorld, int RenderLayer,int ControlID) : base(isInCameraWorld, RenderLayer)
         {
             UserControlID = ControlID;

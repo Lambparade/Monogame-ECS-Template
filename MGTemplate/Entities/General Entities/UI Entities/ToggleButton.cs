@@ -23,7 +23,6 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
         Hitbox ButtonHitbox;
         public bool IsClicked;
         public bool IsToggled;
-        public bool IsFocused;
 
         public ToggleButton(GameTexture ButtonTexture, Position ButtonPosition, bool isInCameraWorld, int Renderlayer,int ControlID) : base(isInCameraWorld, Renderlayer,ControlID)
         {
