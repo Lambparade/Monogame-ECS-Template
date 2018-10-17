@@ -15,7 +15,7 @@ namespace MGTemplate.Systems.Content_System
         {
             SpriteSheet = CurrentGame.Content.Load<Texture2D>("TestSpriteSheet");
 
-            ContentTexture.GenerateGameTextures();
+            LoadedTextures.GenerateGameTextures();
         }
     }
 }

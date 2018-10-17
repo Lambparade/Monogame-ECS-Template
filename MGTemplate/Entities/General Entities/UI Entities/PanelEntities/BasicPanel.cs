@@ -17,6 +17,8 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities.PanelEntities
     public class BasicPanel : UserControl
     {
         Hitbox PanelHitbox;
+        int HitBoxWidth = 128;
+        int HitBoxHeight = 128;
         public bool IsClicked;
 
         public BasicPanel(GameTexture PanelTexture, Position PanelPosition, bool isInCameraWorld, int RenderLayer, int ControlID) : base(isInCameraWorld, RenderLayer, ControlID)
@@ -37,7 +39,7 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities.PanelEntities
 
         public override void EditModeUpdate(GameTime gameTime)
         {
-            PanelHitbox = HitboxUpdater.UpdateHitbox(GamePosition, 32 * 4, 32 * 4, this.InCameraWorld);
+            PanelHitbox = HitboxUpdater.UpdateHitbox(GamePosition, HitBoxWidth, HitBoxHeight, this.InCameraWorld);
 
             IsFocused = ClickSystem.IsInFocus(PanelHitbox, this.InCameraWorld, IsFocused);
 

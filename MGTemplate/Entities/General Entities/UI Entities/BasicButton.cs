@@ -16,6 +16,11 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
     public class BasicButton : UserControl
     {
         Hitbox ButtonHitbox;
+
+        int HitBoxWidth = 32;
+
+        int HitBoxHeight = 32;
+
         public bool IsClicked;
 
         public BasicButton(GameTexture ButtonTexture, Position ButtonPosition, bool isInCameraWorld, int RenderLayer, int ControlID) : base(isInCameraWorld, RenderLayer,ControlID)
@@ -31,7 +36,7 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
 
         public override void Update(GameTime GameTime)
         {
-            ButtonHitbox = HitboxUpdater.UpdateHitbox(GamePosition, 32, 32, this.InCameraWorld);
+            ButtonHitbox = HitboxUpdater.UpdateHitbox(GamePosition, HitBoxWidth, HitBoxHeight, this.InCameraWorld);
 
             IsClicked = ClickSystem.IsClickedOn(ButtonHitbox, this.InCameraWorld);
 

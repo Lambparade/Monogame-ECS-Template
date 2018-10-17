@@ -21,6 +21,9 @@ namespace MGTemplate.Entities.General_Entities.UI_Entities
     public class ToggleButton : UserControl
     {
         Hitbox ButtonHitbox;
+        int HitBoxWidth = 32;
+
+        int HitBoxHeight = 32;
         public bool IsClicked;
         public bool IsToggled;
 

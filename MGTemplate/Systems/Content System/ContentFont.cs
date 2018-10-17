@@ -16,7 +16,7 @@ namespace MGTemplate.Systems.Content_System
       {
          SpriteFont = CurrentGame.Content.Load<SpriteFont>("debugfont");
 
-         ContentTexture.GenerateGameTextures();
+         LoadedTextures.GenerateGameTextures();
       }
    }
 }

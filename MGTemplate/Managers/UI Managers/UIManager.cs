@@ -17,10 +17,11 @@ namespace MGTemplate.Managers.UI_Managers
     //UI manager speaks with UI system. UI system pulls buttons from UI manager. Detects if button is presed or toggled. Returns a bool to entity who called the system. Must assign correct ID!
     public class UIManager
     {
+        public static UserControl CurrentlyFocusedControl;
+
         static List<UserControl> ActiveUserControls = new List<UserControl>();
 
         //Will maybe use manager type later for a more modular system
-
         public static void AddUIControl(UserControl EntityToRender)
         {
             ActiveUserControls.Add(EntityToRender);

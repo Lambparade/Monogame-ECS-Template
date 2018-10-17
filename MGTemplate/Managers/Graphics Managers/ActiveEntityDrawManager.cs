@@ -15,7 +15,6 @@ namespace MGTemplate.Managers.Graphics_Managers
     {
         static List<ActiveEntity> EntitiesToManage = new List<ActiveEntity>();
 
-        //Will maybe use manager type later for a more modular system
         public enum ManagerType
         {
             Basic

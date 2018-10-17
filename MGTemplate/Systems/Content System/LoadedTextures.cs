@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MGTemplate.Systems.Content_System
 {
-    static public class ContentTexture
+    static public class LoadedTextures
     {
         public static GameTexture RedBlock
         {

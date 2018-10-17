@@ -24,3 +24,16 @@ Shader system
 Simple Particle system
 
 Event system
+
+
+
+
+GuideLines to project:
+
+Components are things such as :Health, Texture,Position,Hitbox etc...
+
+Systems act on components within entitys or create components for use with Entities.
+
+Entitys are built up of multiple components and systems which act on those components.
+
+For multiple Systems to share information a Manager is made and used.
