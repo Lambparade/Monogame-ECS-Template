@@ -24,9 +24,7 @@ Shader system
 Simple Particle system
 
 Event system
-
-
-
+___________________________________________________________________________________________________________________________
 
 GuideLines to project:
 
@@ -36,4 +34,4 @@ Systems act on components within entitys or create components for use with Entit
 
 Entitys are built up of multiple components and systems which act on those components.
 
-For multiple Systems to share information a Manager is made and used.
+For multiple Systems to share information a Manager is made and used. Also for a Entity to speak to a manger a system is used.
